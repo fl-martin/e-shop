@@ -1,0 +1,19 @@
+.categoriesNav {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1em;
+	padding-top: 2em;
+	background-color: #003049;
+	color: #fcbf49;
+	font-weight: 300;
+}
+
+.catButton {
+	display: flex;
+	align-items: center;
+	padding-right: 1em;
+	padding-left: 1em;
+	min-width: 10vw;
+	gap: 0.5em;
+}

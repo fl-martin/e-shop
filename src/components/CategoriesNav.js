@@ -1,8 +1,10 @@
+import styles from "../css/CategoriesNav.module.css";
+
 function CategoriesNav(props) {
 	return (
-		<nav>
+		<nav className={styles.categoriesNav}>
 			{props.categories.map((cat) => (
-				<label key={cat.key}>
+				<label key={cat.key} className={styles.catButton}>
 					{cat.label}
 					<input
 						type="checkbox"

@@ -1,6 +1,7 @@
 import CategoriesNav from "./CategoriesNav";
 import ItemsDisplay from "./ItemsDisplay";
 import { useState } from "react";
+import styles from "../css/Shop.module.css";
 
 function Shop() {
 	const categories = [
@@ -42,7 +43,7 @@ function Shop() {
 	};
 
 	return (
-		<div id="shop">
+		<div className={styles.shop}>
 			<CategoriesNav
 				handleChange={handleChange}
 				checkedItems={checkedItems}

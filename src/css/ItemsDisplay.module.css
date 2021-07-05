@@ -1,0 +1,23 @@
+.ItemsDisplay {
+	display: flex;
+	flex-direction: column;
+	margin: 3em;
+	gap: 5em;
+	font-weight: 300;
+	font-size: 0.9em;
+}
+
+.Item {
+	display: flex;
+	gap: 2em;
+	border-radius: 20px;
+	align-items: center;
+}
+
+.ItemPhoto {
+	width: 15%;
+}
+
+.ItemTitle {
+	font-weight: 300;
+}

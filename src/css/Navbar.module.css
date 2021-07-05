@@ -1,0 +1,36 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 5em;
+	background-color: #003049;
+	color: #eae2b7;
+	width: 100vw;
+}
+
+.title {
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+}
+
+.navigation {
+	display: flex;
+	gap: 5em;
+	margin-left: auto;
+	padding-right: 5em;
+	color: #eae2b7;
+	font-size: 1.2em;
+}
+
+.navButton {
+	color: #fcbf49;
+	text-decoration: none;
+}
+
+.checkoutButton {
+	color: #d62828;
+	background-color: #003049;
+	border: none;
+	font-size: 1.5em;
+	padding-right: 2.2em;
+}

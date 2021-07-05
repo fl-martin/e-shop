@@ -1,15 +1,24 @@
 import { Link } from "react-router-dom";
+import styles from "../css/Navbar.module.css";
 
 function Navbar() {
 	return (
-		<header>
-			<h1>myShop</h1>
-			<nav>
-				<Link to="/home">Home</Link>
-				<Link to="/shop">Shop</Link>
+		<header className={styles.header}>
+			<h1 className={styles.title}>myShop</h1>
+			<nav className={styles.navigation}>
+				<Link to="/home" className={styles.navButton}>
+					Home
+				</Link>
+				<Link to="/shop" className={styles.navButton}>
+					Shop
+				</Link>
 			</nav>
 			<div id="checkout-section">
-				<button type="button" id="checkout">
+				<button
+					type="button"
+					id="checkout"
+					className={styles.checkoutButton}
+				>
 					<i className="fas fa-shopping-cart"></i>
 				</button>
 				<div id="items-counter"></div>
