@@ -6,8 +6,6 @@ import styles from "../css/ItemsDisplay.module.css";
 function ItemsDisplay(props) {
 	const [displayData, setDisplayData] = useState([]);
 
-	useEffect(() => console.log(displayData), [displayData]);
-
 	useEffect(
 		() =>
 			(async () => {
@@ -31,6 +29,14 @@ function ItemsDisplay(props) {
 							/>
 							<h2>${item.price}</h2>
 							<h3 className={styles.ItemTitle}>{item.title}</h3>
+							<div className={styles.itemButtons}>
+								<button className={styles.detailButton}>
+									Details
+								</button>
+								<button className={styles.buyButton}>
+									Add to cart
+								</button>
+							</div>
 						</div>
 					);
 				} else return null;

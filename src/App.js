@@ -2,17 +2,19 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
+import OnSale from "./components/OnSale";
 // eslint-disable-next-line no-unused-vars
 import styles from "./css/Body.module.css";
 
 function App() {
 	return (
 		<BrowserRouter>
-			<div>
+			<div className={styles.App}>
 				<Navbar />
 				<Switch>
 					<Route path="/home" component={Home} />
-					<Route path="/shop" component={Shop} />
+					<Route exact path="/shop" component={Shop} />
+					<Route path="/shop/onsale" component={OnSale} />
 				</Switch>
 			</div>
 		</BrowserRouter>

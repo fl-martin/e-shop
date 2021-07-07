@@ -1,6 +1,6 @@
 import CategoriesNav from "./CategoriesNav";
 import ItemsDisplay from "./ItemsDisplay";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../css/Shop.module.css";
 
 function Shop() {
@@ -29,11 +29,15 @@ function Shop() {
 
 	const [checkedItems, setCheckedItems] = useState(() => {
 		const twoObj = categories.map((category) => ({
-			[category.name]: false,
+			[category.name]: true,
 		}));
 		const mergedProp = Object.assign({}, ...twoObj);
 		return mergedProp;
 	});
+
+	/*useEffect(()=> {
+
+	},[checkedItems])*/ //iterar por el objeto y si todas son falsas devolver cartel de choose category, si hay alguna verdadera devolver null (hacer esto adentro de un componente que se llame asi, pasar como prop checkedItems)
 
 	const handleChange = (e) => {
 		setCheckedItems({

@@ -12,6 +12,9 @@ function Navbar() {
 				<Link to="/shop" className={styles.navButton}>
 					Shop
 				</Link>
+				<Link to="/onsale" className={styles.navButton}>
+					On Sale!
+				</Link>
 			</nav>
 			<div id="checkout-section">
 				<button

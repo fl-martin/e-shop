@@ -1,5 +1,6 @@
 .categoriesNav {
 	display: flex;
+	position: sticky;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 1em;
@@ -7,6 +8,7 @@
 	background-color: #003049;
 	color: #fcbf49;
 	font-weight: 300;
+	height: 100vh;
 }
 
 .catButton {
