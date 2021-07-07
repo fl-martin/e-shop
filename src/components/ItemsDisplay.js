@@ -15,7 +15,6 @@ function ItemsDisplay(props) {
 			})(),
 		[]
 	);
-
 	return (
 		<div className={styles.ItemsDisplay}>
 			{displayData.map((item) => {

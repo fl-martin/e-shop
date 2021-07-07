@@ -1,6 +1,7 @@
 import CategoriesNav from "./CategoriesNav";
 import ItemsDisplay from "./ItemsDisplay";
-import { useEffect, useState } from "react";
+import ChooseCategory from "./ChooseCategory";
+import { useState } from "react";
 import styles from "../css/Shop.module.css";
 
 function Shop() {
@@ -54,6 +55,7 @@ function Shop() {
 				categories={categories}
 			/>
 			<ItemsDisplay checkedItems={checkedItems} />
+			<ChooseCategory checkedItems={checkedItems} />
 		</div>
 	);
 }
