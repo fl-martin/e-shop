@@ -6,7 +6,7 @@ function Navbar() {
 		<header className={styles.header}>
 			<h1 className={styles.title}>myShop</h1>
 			<nav className={styles.navigation}>
-				<Link to="/home" className={styles.navButton}>
+				<Link to="/" className={styles.navButton}>
 					Home
 				</Link>
 				<Link to="/shop" className={styles.navButton}>

@@ -25,6 +25,11 @@
 .navButton {
 	color: #fcbf49;
 	text-decoration: none;
+	transition: color 0.5s;
+}
+
+.navButton:hover {
+	color: #f77f00;
 }
 
 .checkoutButton {

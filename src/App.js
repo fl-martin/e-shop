@@ -12,8 +12,8 @@ function App() {
 			<div className={styles.App}>
 				<Navbar />
 				<Switch>
-					<Route path="/home" component={Home} />
-					<Route exact path="/shop" component={Shop} />
+					<Route exact path="/" component={Home} />
+					<Route path="/shop" component={Shop} />
 					<Route path="/onsale" component={OnSale} />
 				</Switch>
 			</div>

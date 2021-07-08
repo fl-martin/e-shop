@@ -26,7 +26,7 @@ function ItemsDisplay(props) {
 								src={item.image}
 								className={styles.ItemPhoto}
 							/>
-							<h2>${item.price}</h2>
+							<h2 className={styles.price}>${item.price}</h2>
 							<h3 className={styles.ItemTitle}>{item.title}</h3>
 							<div className={styles.itemButtons}>
 								<button className={styles.detailButton}>
