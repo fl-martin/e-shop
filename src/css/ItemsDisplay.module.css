@@ -13,7 +13,7 @@
 	display: grid;
 	align-items: center;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1.5fr 0.5fr 0.5fr;
+	grid-template-rows: 2.5fr 1fr 1fr;
 	grid-template-areas:
 		"img price "
 		"titl titl"
@@ -55,6 +55,7 @@
 	font-family: "Rubik", sans-serif;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	gap: 1em;
 	grid-area: btns;
 	white-space: nowrap;

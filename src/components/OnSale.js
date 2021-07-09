@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import styles from "../css/ItemsDisplay.module.css";
-import { format, add, differenceInHours, hoursToMinutes } from "date-fns";
+import { format, nextDay, formatDuration, intervalToDuration } from "date-fns";
 
 function OnSale() {
 	const [displayData, setDisplayData] = useState([]);
 
 	const date = new Date();
-	const futureDate = add(date, {
-		days: 1,
-	});
-	const remains = differenceInHours(futureDate, date);
-	const remainsMinutes = hoursToMinutes(remains);
+	const futureDate = nextDay(date, 1).setHours(0, 0, 0, 0);
+	const untilDate = format(futureDate, "dd/MM");
 
-	const untilDate = format(futureDate, "dd/MM/yyyy");
+	const duration = intervalToDuration({ start: date, end: futureDate });
+	const formatedDuration = formatDuration(duration, {
+		format: ["days", "hours", "minutes", "seconds"],
+	});
+	console.log(formatedDuration); //falta formating  hacerlo una funcion a cada segundo
 
 	useEffect(
 		() =>
@@ -29,7 +30,11 @@ function OnSale() {
 		<div>
 			<div className={styles.dateOnSale}>
 				Products on sale until <br />
-				{untilDate}!🔥
+				{untilDate}🔥
+				<br />
+				<div className={styles.timeCounter}>
+					{formatedDuration} to go, don't loose your chance!
+				</div>
 			</div>
 			<div className={styles.ItemsDisplay}>
 				{displayData.map((item) => {

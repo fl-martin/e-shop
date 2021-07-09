@@ -23,9 +23,12 @@
 }
 
 .navButton {
+	display: flex;
 	color: #fcbf49;
 	text-decoration: none;
 	transition: color 0.5s;
+	text-align: center;
+	align-items: center;
 }
 
 .navButton:hover {
