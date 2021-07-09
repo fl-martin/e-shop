@@ -25,7 +25,7 @@
 	margin: 1em 1em 1em 1em;
 	border-radius: 20px;
 	transition: 0.5s;
-	min-width: fit-content;
+	min-width: 80%;
 }
 
 .Item:hover {
@@ -102,10 +102,13 @@
 }
 
 .dateOnSale {
+	display: inline-block;
 	margin-bottom: auto;
 	font-size: 1.5em;
-	padding-bottom: 1em;
-	max-width: 50vw;
+	padding-top: 2em;
 	align-self: center;
+	text-align: center;
+	background-color: #eae2b7;
+	width: 100%;
 	text-align: center;
 }
