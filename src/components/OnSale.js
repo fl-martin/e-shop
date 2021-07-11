@@ -5,15 +5,30 @@ import { format, nextDay, formatDuration, intervalToDuration } from "date-fns";
 function OnSale() {
 	const [displayData, setDisplayData] = useState([]);
 
+	const [counter, setCounter] = useState();
+
+	useEffect(
+		() =>
+			setInterval(() => {
+				setCounter(() => {
+					const date = new Date();
+					const futureDate = nextDay(date, 1).setHours(0, 0, 0, 0);
+					const duration = intervalToDuration({
+						start: date,
+						end: futureDate,
+					});
+					const formatedDuration = formatDuration(duration, {
+						format: ["days", "hours", "minutes", "seconds"],
+					});
+					return formatedDuration;
+				});
+			}),
+		[]
+	);
+
 	const date = new Date();
 	const futureDate = nextDay(date, 1).setHours(0, 0, 0, 0);
 	const untilDate = format(futureDate, "dd/MM");
-
-	const duration = intervalToDuration({ start: date, end: futureDate });
-	const formatedDuration = formatDuration(duration, {
-		format: ["days", "hours", "minutes", "seconds"],
-	});
-	console.log(formatedDuration); //falta formating  hacerlo una funcion a cada segundo
 
 	useEffect(
 		() =>
@@ -27,14 +42,12 @@ function OnSale() {
 	);
 
 	return (
-		<div>
+		<div className={styles.OnSale}>
 			<div className={styles.dateOnSale}>
 				Products on sale until <br />
 				{untilDate}🔥
 				<br />
-				<div className={styles.timeCounter}>
-					{formatedDuration} to go, don't loose your chance!
-				</div>
+				<div className={styles.timeCounter}>{counter} to go!</div>
 			</div>
 			<div className={styles.ItemsDisplay}>
 				{displayData.map((item) => {

@@ -5,7 +5,7 @@
 	height: 5em;
 	background-color: #003049;
 	color: #eae2b7;
-	width: 100vw;
+	width: 100%;
 }
 
 .title {
@@ -24,6 +24,8 @@
 
 .navButton {
 	display: flex;
+	flex-grow: 1;
+	justify-content: end;
 	color: #fcbf49;
 	text-decoration: none;
 	transition: color 0.5s;
@@ -36,6 +38,7 @@
 }
 
 .checkoutButton {
+	flex-grow: 0;
 	color: #d62828;
 	background-color: #003049;
 	border: none;

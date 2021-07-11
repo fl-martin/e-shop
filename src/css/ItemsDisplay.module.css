@@ -102,6 +102,13 @@
 	text-align: center;
 }
 
+.OnSale {
+	min-width: 830px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
 .dateOnSale {
 	display: inline-block;
 	margin-bottom: auto;
@@ -111,5 +118,11 @@
 	text-align: center;
 	background-color: #eae2b7;
 	width: 100%;
+	text-align: center;
+}
+
+.timeCounter {
+	font-weight: 300;
+	padding-top: 1em;
 	text-align: center;
 }
