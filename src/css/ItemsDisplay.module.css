@@ -67,10 +67,13 @@
 	background-color: #fcbf49;
 	border-radius: 20px;
 	font-size: 1em;
+	font-weight: 300;
 	padding: 0.7em 1.2em 0.7em 1.2em;
 	transition: background-color 0.5s;
 	min-width: fit-content;
 	max-width: 40%;
+	text-decoration: none;
+	color: black;
 }
 
 .detailButton:hover,

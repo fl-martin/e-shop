@@ -1,6 +1,6 @@
 //import { Link } from "react-router-dom";
-//import Details from "./Details";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "../css/ItemsDisplay.module.css";
 
 function ItemsDisplay(props) {
@@ -29,11 +29,22 @@ function ItemsDisplay(props) {
 							<h2 className={styles.price}>${item.price}</h2>
 							<h3 className={styles.ItemTitle}>{item.title}</h3>
 							<div className={styles.itemButtons}>
-								<button className={styles.detailButton}>
+								<Link
+									to={{
+										pathname: `/shop/${item.id}`,
+										state: {
+											title: item.title,
+											price: item.price,
+											description: item.description,
+											image: item.image,
+										},
+									}}
+									className={styles.detailButton}
+								>
 									Details
-								</button>
+								</Link>
 								<button className={styles.buyButton}>
-									Add to cart
+									Add to Cart
 								</button>
 							</div>
 						</div>
