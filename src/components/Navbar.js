@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "../css/Navbar.module.css";
 
-function Navbar() {
+function Navbar(props) {
 	return (
 		<header className={styles.header}>
 			<h1 className={styles.title}>myShop</h1>
@@ -16,7 +16,7 @@ function Navbar() {
 					On Sale!
 				</Link>
 			</nav>
-			<div id="checkout-section">
+			<Link to="cart" className={styles.checkoutSection}>
 				<button
 					type="button"
 					id="checkout"
@@ -24,8 +24,8 @@ function Navbar() {
 				>
 					<i className="fas fa-shopping-cart"></i>
 				</button>
-				<div id="items-counter"></div>
-			</div>
+				<div id="items-counter">{props.cartCounter}</div>
+			</Link>
 		</header>
 	);
 }

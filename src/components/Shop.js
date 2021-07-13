@@ -4,7 +4,7 @@ import ChooseCategory from "./ChooseCategory";
 import { useState } from "react";
 import styles from "../css/Shop.module.css";
 
-function Shop() {
+function Shop({ addProd }) {
 	const categories = [
 		{
 			name: "electronics",
@@ -54,7 +54,7 @@ function Shop() {
 				checkedItems={checkedItems}
 				categories={categories}
 			/>
-			<ItemsDisplay checkedItems={checkedItems} />
+			<ItemsDisplay checkedItems={checkedItems} addProd={addProd} />
 			<ChooseCategory checkedItems={checkedItems} />
 		</div>
 	);

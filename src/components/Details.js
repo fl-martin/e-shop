@@ -2,11 +2,11 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "../css/Details.module.css";
 
-function Details({ match }) {
+function Details({ match, addProd }) {
 	console.log(match);
 	const location = useLocation();
 	const props = location.state;
-	console.log(props);
+
 	return (
 		<div className={styles.details}>
 			<img
@@ -22,7 +22,13 @@ function Details({ match }) {
 			<div className={styles.prodInfo}>
 				<div>
 					<h1 className={styles.prodTitle}>{props.title}</h1>
-					<button className={styles.buyButton}>Add to Cart</button>
+					<button
+						className={styles.buyButton}
+						onClick={addProd}
+						id={props.id}
+					>
+						Add to Cart
+					</button>
 				</div>
 				<h2 className={styles.prodPrice}>${props.price}</h2>
 				<p className={styles.prodDescr}>{props.description}</p>

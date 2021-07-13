@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "../css/ItemsDisplay.module.css";
+import { Link } from "react-router-dom";
 import { format, nextDay, formatDuration, intervalToDuration } from "date-fns";
 
-function OnSale() {
+function OnSale({ addProd }) {
 	const [displayData, setDisplayData] = useState([]);
 
 	const [counter, setCounter] = useState();
@@ -36,7 +37,6 @@ function OnSale() {
 				const resp = await fetch("https://fakestoreapi.com/products");
 				const data = await resp.json();
 				setDisplayData(data);
-				console.log(data);
 			})(),
 		[]
 	);
@@ -64,10 +64,24 @@ function OnSale() {
 									{item.title}
 								</h3>
 								<div className={styles.itemButtons}>
-									<button className={styles.detailButton}>
+									<Link
+										to={{
+											pathname: `/shop/${item.id}`,
+											state: {
+												title: item.title,
+												price: item.price,
+												description: item.description,
+												image: item.image,
+											},
+										}}
+										className={styles.detailButton}
+									>
 										Details
-									</button>
-									<button className={styles.buyButton}>
+									</Link>
+									<button
+										className={styles.buyButton}
+										onClick={addProd}
+									>
 										Add to cart
 									</button>
 								</div>

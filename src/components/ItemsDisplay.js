@@ -37,13 +37,18 @@ function ItemsDisplay(props) {
 											price: item.price,
 											description: item.description,
 											image: item.image,
+											id: item.id,
 										},
 									}}
 									className={styles.detailButton}
 								>
 									Details
 								</Link>
-								<button className={styles.buyButton}>
+								<button
+									className={styles.buyButton}
+									onClick={props.addProd}
+									id={item.id}
+								>
 									Add to Cart
 								</button>
 							</div>
