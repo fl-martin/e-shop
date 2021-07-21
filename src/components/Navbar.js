@@ -17,14 +17,10 @@ function Navbar(props) {
 				</Link>
 			</nav>
 			<Link to="cart" className={styles.checkoutSection}>
-				<button
-					type="button"
-					id="checkout"
-					className={styles.checkoutButton}
-				>
+				<div className={styles.checkoutButton}>
 					<i className="fas fa-shopping-cart"></i>
-				</button>
-				<div id="items-counter">{props.cartCounter}</div>
+				</div>
+				<div className={styles.itemsCounter}>{props.cartCounter}</div>
 			</Link>
 		</header>
 	);

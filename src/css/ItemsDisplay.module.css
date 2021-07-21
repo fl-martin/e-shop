@@ -113,7 +113,8 @@
 }
 
 .dateOnSale {
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
 	margin-bottom: auto;
 	font-size: 1.5em;
 	padding-top: 2em;
@@ -121,11 +122,13 @@
 	text-align: center;
 	background-color: #eae2b7;
 	width: 100%;
-	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .timeCounter {
 	font-weight: 300;
 	padding-top: 1em;
 	text-align: center;
+	width: 500px;
 }

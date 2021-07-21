@@ -1,0 +1,32 @@
+.cartDisplay {
+	display: flex;
+	flex-direction: column;
+	background-color: #eae2b7;
+	min-height: 100vh;
+	margin: 2em 4em 2em 4em;
+	border: black;
+	border-style: double;
+	border-radius: 20px;
+	background-color: #f8f8f8;
+}
+
+.cartItem {
+	display: flex;
+	align-items: center;
+}
+
+.cartTitle {
+	font-size: 1em;
+	width: 50%;
+	margin-right: 2em;
+}
+
+.cartPrice {
+	font-size: 1em;
+	width: 25%;
+}
+
+.cartAmount {
+	font-size: 1em;
+	font-weight: 300;
+}

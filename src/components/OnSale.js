@@ -81,6 +81,7 @@ function OnSale({ addProd }) {
 									<button
 										className={styles.buyButton}
 										onClick={addProd}
+										id={item.id}
 									>
 										Add to cart
 									</button>

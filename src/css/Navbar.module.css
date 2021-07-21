@@ -43,6 +43,7 @@
 	background-color: #003049;
 	border: none;
 	font-size: 1.5em;
+	padding-right: 0.2em;
 }
 
 .checkoutSection {
@@ -50,4 +51,12 @@
 	align-items: center;
 	justify-content: flex-end;
 	padding-right: 2.2em;
+	text-decoration: none;
+	color: #eae2b7;
+}
+
+.itemsCounter {
+	width: 1em;
+	font-size: 1em;
+	font-weight: 300;
 }

@@ -13,9 +13,19 @@ function App() {
 	const [cart, setCart] = useState([]);
 
 	const addProduct = (e) => {
-		console.log(e.target.id);
 		setCartCounter(() => cartCounter + 1);
-		setCart(() => [...cart, e.target.id]);
+		setCart(() => {
+			if (cart.some((item) => item.id === e.target.id)) {
+				const itemIndex = cart.findIndex(
+					(item) => item.id === e.target.id
+				);
+				console.log(cart[itemIndex].amount);
+				return [
+					...cart,
+					(cart[itemIndex].amount = cart[itemIndex].amount + 0.5),
+				];
+			} else return [...cart, { id: e.target.id, amount: 1 }];
+		});
 	};
 
 	return (
