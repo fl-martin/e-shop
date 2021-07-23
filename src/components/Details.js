@@ -2,8 +2,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "../css/Details.module.css";
 
-function Details({ match, addProd }) {
-	console.log(match);
+function Details({ addProd }) {
 	const location = useLocation();
 	const props = location.state;
 

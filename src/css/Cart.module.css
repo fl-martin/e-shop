@@ -2,8 +2,9 @@
 	display: flex;
 	flex-direction: column;
 	background-color: #eae2b7;
-	min-height: 100vh;
+
 	margin: 2em 4em 2em 4em;
+	padding: 2em;
 	border: black;
 	border-style: double;
 	border-radius: 20px;
@@ -29,4 +30,31 @@
 .cartAmount {
 	font-size: 1em;
 	font-weight: 300;
+}
+
+.totalPrice {
+	text-align: center;
+	justify-content: center;
+	margin: auto;
+	padding: 0.5em;
+	border-radius: 20px;
+	margin-top: 2em;
+	background-color: #eae2b7;
+	width: 20%;
+}
+
+.payButton {
+	margin: auto;
+	margin-top: 1em;
+	border-radius: 20px;
+	padding: 1.2em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	background-color: #fcbf49;
+	border: none;
+	transition: background-color 0.5s;
+}
+
+.payButton:hover {
+	background-color: #f77f00;
 }

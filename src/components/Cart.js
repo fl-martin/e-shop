@@ -42,7 +42,8 @@ function Cart({ cart }) {
 					</div>
 				);
 			})}
-			<div className={styles.totalPrice}>{totalPrice}</div>
+			<div className={styles.totalPrice}>Total: ${totalPrice}</div>
+			<button className={styles.payButton}>Buy</button>
 		</div>
 	);
 }

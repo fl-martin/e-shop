@@ -25,7 +25,7 @@
 .navButton {
 	display: flex;
 	flex-grow: 1;
-	justify-content: end;
+	justify-content: flex-end;
 	color: #fcbf49;
 	text-decoration: none;
 	transition: color 0.5s;
