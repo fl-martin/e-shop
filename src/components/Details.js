@@ -1,16 +1,30 @@
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "../css/Details.module.css";
 
 function Details({ addProd }) {
-	const location = useLocation();
-	const props = location.state;
+	const [displayData, setDisplayData] = useState({});
+	const { id } = useParams();
+
+	useEffect(
+		() =>
+			(async () => {
+				console.log("fetchin");
+				const resp = await fetch(
+					`https://fakestoreapi.com/products/${id}`
+				);
+				const data = await resp.json();
+				setDisplayData(data);
+			})(),
+		[id]
+	);
 
 	return (
 		<div className={styles.details}>
 			<img
-				src={props.image}
-				alt={props.title}
+				src={displayData.image}
+				alt={displayData.title}
 				className={styles.prodImg}
 			/>
 			<div>
@@ -20,17 +34,17 @@ function Details({ addProd }) {
 			</div>
 			<div className={styles.prodInfo}>
 				<div>
-					<h1 className={styles.prodTitle}>{props.title}</h1>
+					<h1 className={styles.prodTitle}>{displayData.title}</h1>
 					<button
 						className={styles.buyButton}
 						onClick={addProd}
-						id={props.id}
+						id={displayData.id}
 					>
 						Add to Cart
 					</button>
 				</div>
-				<h2 className={styles.prodPrice}>${props.price}</h2>
-				<p className={styles.prodDescr}>{props.description}</p>
+				<h2 className={styles.prodPrice}>${displayData.price}</h2>
+				<p className={styles.prodDescr}>{displayData.description}</p>
 			</div>
 		</div>
 	);

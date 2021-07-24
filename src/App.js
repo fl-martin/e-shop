@@ -19,7 +19,7 @@ function App() {
 				const itemIndex = cart.findIndex(
 					(item) => item.id === e.target.id
 				);
-				console.log(cart[itemIndex].amount);
+				console.log("adding");
 				return [
 					...cart,
 					(cart[itemIndex].amount = cart[itemIndex].amount + 0.5),

@@ -72,6 +72,7 @@ function OnSale({ addProd }) {
 												price: item.price,
 												description: item.description,
 												image: item.image,
+												id: item.id,
 											},
 										}}
 										className={styles.detailButton}

@@ -16,7 +16,7 @@ function Navbar(props) {
 					On Sale!
 				</Link>
 			</nav>
-			<Link to="cart" className={styles.checkoutSection}>
+			<Link to="/cart" className={styles.checkoutSection}>
 				<div className={styles.checkoutButton}>
 					<i className="fas fa-shopping-cart"></i>
 				</div>
