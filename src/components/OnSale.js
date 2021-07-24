@@ -31,15 +31,19 @@ function OnSale({ addProd }) {
 	const futureDate = nextDay(date, 1).setHours(0, 0, 0, 0);
 	const untilDate = format(futureDate, "dd/MM");
 
-	useEffect(
-		() =>
-			(async () => {
-				const resp = await fetch("https://fakestoreapi.com/products");
-				const data = await resp.json();
-				setDisplayData(data);
-			})(),
-		[]
-	);
+	useEffect(() => {
+		const abortController = new AbortController();
+		(async () => {
+			const resp = await fetch("https://fakestoreapi.com/products", {
+				signal: abortController.signal,
+			});
+			const data = await resp.json();
+			setDisplayData(data);
+		})();
+		return () => {
+			abortController.abort();
+		};
+	}, []);
 
 	return (
 		<div className={styles.OnSale}>

@@ -7,18 +7,21 @@ function Details({ addProd }) {
 	const [displayData, setDisplayData] = useState({});
 	const { id } = useParams();
 
-	useEffect(
-		() =>
-			(async () => {
-				console.log("fetchin");
-				const resp = await fetch(
-					`https://fakestoreapi.com/products/${id}`
-				);
-				const data = await resp.json();
-				setDisplayData(data);
-			})(),
-		[id]
-	);
+	useEffect(() => {
+		const abortController = new AbortController();
+		(async () => {
+			console.log("fetchin");
+			const resp = await fetch(
+				`https://fakestoreapi.com/products/${id}`,
+				{ signal: abortController.signal }
+			);
+			const data = await resp.json();
+			setDisplayData(data);
+		})();
+		return () => {
+			abortController.abort();
+		};
+	}, [id]);
 
 	return (
 		<div className={styles.details}>

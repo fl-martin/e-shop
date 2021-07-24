@@ -6,15 +6,19 @@ import styles from "../css/ItemsDisplay.module.css";
 function ItemsDisplay(props) {
 	const [displayData, setDisplayData] = useState([]);
 
-	useEffect(
-		() =>
-			(async () => {
-				const resp = await fetch("https://fakestoreapi.com/products");
-				const data = await resp.json();
-				setDisplayData(data);
-			})(),
-		[]
-	);
+	useEffect(() => {
+		const abortController = new AbortController();
+		(async () => {
+			const resp = await fetch("https://fakestoreapi.com/products", {
+				signal: abortController.signal,
+			});
+			const data = await resp.json();
+			setDisplayData(data);
+		})();
+		return () => {
+			abortController.abort();
+		};
+	}, []);
 	return (
 		<div className={styles.ItemsDisplay}>
 			{displayData.map((item) => {

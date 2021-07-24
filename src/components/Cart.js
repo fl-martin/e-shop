@@ -29,8 +29,6 @@ function Cart({ cart }) {
 		}
 	}, [displayData]);
 
-	console.log(displayData);
-
 	return (
 		<div className={styles.cartDisplay}>
 			{displayData.map((item) => {
