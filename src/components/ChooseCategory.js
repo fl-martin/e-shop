@@ -1,15 +1,9 @@
 import styles from "../css/ItemsDisplay.module.css";
 import { Link } from "react-router-dom";
 
-function ChooseCategory(props) {
-	let counter = 0;
-	for (const item in props.checkedItems) {
-		if (props.checkedItems[item] === true) {
-			counter++;
-		}
-	}
-	if (counter !== 0) return null;
-	else
+function ChooseCategory({ checkedItems }) {
+	const checkedValues = Object.values(checkedItems);
+	if (checkedValues.every((item) => item === false))
 		return (
 			<div className={styles.ChooseCategory}>
 				<h1 className={styles.h1}>
@@ -20,6 +14,7 @@ function ChooseCategory(props) {
 				</p>
 			</div>
 		);
+	else return null;
 }
 
 export default ChooseCategory;

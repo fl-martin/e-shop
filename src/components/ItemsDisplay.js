@@ -1,4 +1,4 @@
-//import { Link } from "react-router-dom";
+import ChooseCategory from "./ChooseCategory";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../css/ItemsDisplay.module.css";
@@ -8,9 +8,10 @@ function ItemsDisplay(props) {
 
 	useEffect(() => {
 		const abortController = new AbortController();
+		const signal = abortController.signal;
 		(async () => {
 			const resp = await fetch("https://fakestoreapi.com/products", {
-				signal: abortController.signal,
+				signal,
 			});
 			const data = await resp.json();
 			setDisplayData(data);
@@ -30,7 +31,9 @@ function ItemsDisplay(props) {
 								src={item.image}
 								className={styles.ItemPhoto}
 							/>
-							<h2 className={styles.price}>${item.price}</h2>
+							<h2 className={styles.price}>
+								${item.price.toFixed(2)}
+							</h2>
 							<h3 className={styles.ItemTitle}>{item.title}</h3>
 							<div className={styles.itemButtons}>
 								<Link
@@ -60,6 +63,7 @@ function ItemsDisplay(props) {
 					);
 				} else return null;
 			})}
+			<ChooseCategory checkedItems={props.checkedItems} />
 		</div>
 	);
 }

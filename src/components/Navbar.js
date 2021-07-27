@@ -26,4 +26,6 @@ function Navbar(props) {
 	);
 }
 
+//falta en lugar del ultimo link renderear una seccion que alterne entre el link actual y el boton para sing up
+
 export default Navbar;

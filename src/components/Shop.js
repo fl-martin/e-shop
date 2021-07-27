@@ -1,6 +1,5 @@
 import CategoriesNav from "./CategoriesNav";
 import ItemsDisplay from "./ItemsDisplay";
-import ChooseCategory from "./ChooseCategory";
 import { useState } from "react";
 import styles from "../css/Shop.module.css";
 
@@ -36,10 +35,6 @@ function Shop({ addProd }) {
 		return mergedProp;
 	});
 
-	/*useEffect(()=> {
-
-	},[checkedItems])*/ //iterar por el objeto y si todas son falsas devolver cartel de choose category, si hay alguna verdadera devolver null (hacer esto adentro de un componente que se llame asi, pasar como prop checkedItems)
-
 	const handleChange = (e) => {
 		setCheckedItems({
 			...checkedItems,
@@ -55,7 +50,6 @@ function Shop({ addProd }) {
 				categories={categories}
 			/>
 			<ItemsDisplay checkedItems={checkedItems} addProd={addProd} />
-			<ChooseCategory checkedItems={checkedItems} />
 		</div>
 	);
 }

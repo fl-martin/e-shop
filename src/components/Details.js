@@ -9,11 +9,11 @@ function Details({ addProd }) {
 
 	useEffect(() => {
 		const abortController = new AbortController();
+		const signal = abortController.signal;
 		(async () => {
-			console.log("fetchin");
 			const resp = await fetch(
 				`https://fakestoreapi.com/products/${id}`,
-				{ signal: abortController.signal }
+				{ signal }
 			);
 			const data = await resp.json();
 			setDisplayData(data);

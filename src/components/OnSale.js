@@ -33,13 +33,15 @@ function OnSale({ addProd }) {
 
 	useEffect(() => {
 		const abortController = new AbortController();
-		(async () => {
+		const signal = abortController.signal;
+		const fetchData = async () => {
 			const resp = await fetch("https://fakestoreapi.com/products", {
-				signal: abortController.signal,
+				signal,
 			});
 			const data = await resp.json();
 			setDisplayData(data);
-		})();
+		};
+		fetchData();
 		return () => {
 			abortController.abort();
 		};
@@ -63,7 +65,9 @@ function OnSale({ addProd }) {
 									src={item.image}
 									className={styles.ItemPhoto}
 								/>
-								<h2 className={styles.price}>${item.price}</h2>
+								<h2 className={styles.price}>
+									${item.price.toFixed(2)}
+								</h2>
 								<h3 className={styles.ItemTitle}>
 									{item.title}
 								</h3>

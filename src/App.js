@@ -15,17 +15,23 @@ function App() {
 	const addProduct = (e) => {
 		setCartCounter(() => cartCounter + 1);
 		setCart(() => {
-			if (cart.some((item) => item.id === e.target.id)) {
+			if (cart.every((item) => item.id !== e.target.id)) {
+				return [...cart, { id: e.target.id, amount: 1 }];
+			} else {
 				const itemIndex = cart.findIndex(
 					(item) => item.id === e.target.id
 				);
-				console.log("adding");
 				return [
 					...cart,
 					(cart[itemIndex].amount = cart[itemIndex].amount + 0.5),
 				];
-			} else return [...cart, { id: e.target.id, amount: 1 }];
+			}
 		});
+	};
+
+	const removeProd = (e) => {
+		setCartCounter(() => cartCounter - 1);
+		setCart(() => cart.filter((item) => item.id !== e.target.id));
 	};
 
 	return (
@@ -44,7 +50,7 @@ function App() {
 						<Details addProd={addProduct} />
 					</Route>
 					<Route path="/cart">
-						<Cart cart={cart} />
+						<Cart cart={cart} removeProd={removeProd} />
 					</Route>
 				</Switch>
 			</div>
