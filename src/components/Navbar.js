@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "../css/Navbar.module.css";
+import LoginSection from "./LoginSection";
 
 function Navbar(props) {
 	return (
@@ -16,6 +17,13 @@ function Navbar(props) {
 					On Sale!
 				</Link>
 			</nav>
+			<LoginSection
+				displayName={props.displayName}
+				photoURL={props.photoURL}
+				signIn={props.signIn}
+				signOut={props.signOut}
+				logState={props.logState}
+			/>
 			<Link to="/cart" className={styles.checkoutSection}>
 				<div className={styles.checkoutButton}>
 					<i className="fas fa-shopping-cart"></i>

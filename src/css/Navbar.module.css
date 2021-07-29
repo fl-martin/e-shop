@@ -48,7 +48,7 @@
 
 .checkoutSection {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: flex-end;
 	padding-right: 2.2em;
 	text-decoration: none;
@@ -59,4 +59,22 @@
 	width: 1em;
 	font-size: 1em;
 	font-weight: 300;
+}
+
+.user {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1em;
+}
+
+.displayName {
+	white-space: nowrap;
+	margin-right: 0.5em;
+}
+
+.userPhoto {
+	width: 2em;
+	border-radius: 50%;
+	pointer-events: none;
 }
