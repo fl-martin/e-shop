@@ -49,6 +49,7 @@ function Cart({ cart, removeProd }) {
 							className={styles.deleteItem}
 							onClick={removeProd}
 							id={item.id}
+							data-amount={item.amount}
 						>
 							<i className="far fa-trash-alt"></i>
 						</button>

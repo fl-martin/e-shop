@@ -7,14 +7,15 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import { auth, fStore, provider } from "./Firebase";
 import styles from "./css/Body.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 	const [cartCounter, setCartCounter] = useState(0);
 	const [cart, setCart] = useState([]);
 	const [displayName, setDisplayName] = useState(null);
 	const [photoURL, setPhotoURL] = useState(null);
-	const [emailVerified, setEmailVerified] = useState();
+	const [userUID, setUserUID] = useState();
+	const [email, setEmail] = useState();
 	const [logState, setLogState] = useState(false);
 
 	const signIn = () => {
@@ -29,7 +30,8 @@ function App() {
 		if (user) {
 			setDisplayName(user.displayName);
 			setPhotoURL(user.photoURL);
-			setEmailVerified(user.emailVerified);
+			setUserUID(user.uid);
+			setEmail(user.email);
 			setLogState(true);
 		} else {
 			setLogState(false);
@@ -38,7 +40,27 @@ function App() {
 
 	(function initFirebaseAuth() {
 		auth.onAuthStateChanged(authStateObserver);
-	})(); //todo el tiempo porque cuando es falso muestro boton sign in
+	})();
+
+	//OBTENER DATOS PARA CART INICIAL SI YA TENIA EL USER
+
+	/*useEffect(() => {
+		if (logState)
+			setCart([
+				fStore
+					.collection("carts")
+					.doc(email)
+					.get()
+					.then((doc) => doc.data()),
+			]);
+	}, [logState, email]);*/
+
+	useEffect(() => {
+		if (logState) {
+			//esto es garantia de que ya estan cargados los datos del user? No, set es async
+			fStore.collection("carts").doc(email).set({ cart });
+		}
+	}, [cart, email, logState]);
 
 	const addProduct = (e) => {
 		setCartCounter(() => cartCounter + 1);
@@ -51,14 +73,14 @@ function App() {
 				);
 				return [
 					...cart,
-					(cart[itemIndex].amount = cart[itemIndex].amount + 0.5),
+					(cart[itemIndex].amount = cart[itemIndex].amount + 0.5), //mal, agrega numeros al array y suma el doble de lo que codee
 				];
 			}
 		});
 	};
 
 	const removeProd = (e) => {
-		setCartCounter(() => cartCounter - 1);
+		setCartCounter(() => cartCounter - 1 * e.target.dataset.amount);
 		setCart(() => cart.filter((item) => item.id !== e.target.id));
 	};
 
