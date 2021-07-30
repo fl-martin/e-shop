@@ -70,11 +70,16 @@
 
 .displayName {
 	white-space: nowrap;
-	margin-right: 0.5em;
+	margin-right: 0.1em;
 }
 
 .userPhoto {
 	width: 2em;
 	border-radius: 50%;
 	pointer-events: none;
+}
+
+.signOut {
+	background: none;
+	border: none;
 }

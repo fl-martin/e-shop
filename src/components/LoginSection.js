@@ -8,7 +8,7 @@ function LoginSection({ logState, displayName, photoURL, signIn, signOut }) {
 		return (
 			<div className={styles.user}>
 				<div className={styles.displayName}>{firstName}</div>
-				<button onClick={signOut}>
+				<button onClick={signOut} className={styles.signOut}>
 					<img
 						src={photoURL}
 						alt="profile"

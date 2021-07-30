@@ -46,37 +46,51 @@ function App() {
 
 	/*useEffect(() => {
 		if (logState)
-			setCart([
-				fStore
-					.collection("carts")
-					.doc(email)
-					.get()
-					.then((doc) => doc.data()),
-			]);
+			fStore
+				.collection("carts")
+				.doc(email)
+				.get()
+				.then((snapshot) => {
+					console.log(snapshot.data());
+					setCart(snapshot.data().cart); //esto funciona si ya hay cart
+				});
 	}, [logState, email]);*/
+
+	/*useEffect(() => {
+		if (logState) {
+			fStore
+				.collection("carts")
+				.doc(email)
+				.get()
+				.then((snapshot) => {
+					let counter = 0;
+					for (let i = 0; snapshot.data().cart.length; i++) counter++;
+					setCartCounter(() => counter);
+				});
+		} else if (!logState) setCartCounter(() => 0);
+	}, [email, logState]);*/
 
 	useEffect(() => {
 		if (logState) {
 			//esto es garantia de que ya estan cargados los datos del user? No, set es async
 			fStore.collection("carts").doc(email).set({ cart });
 		}
-	}, [cart, email, logState]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [cart, email]);
 
 	const addProduct = (e) => {
 		setCartCounter(() => cartCounter + 1);
-		setCart(() => {
-			if (cart.every((item) => item.id !== e.target.id)) {
-				return [...cart, { id: e.target.id, amount: 1 }];
-			} else {
-				const itemIndex = cart.findIndex(
-					(item) => item.id === e.target.id
-				);
-				return [
-					...cart,
-					(cart[itemIndex].amount = cart[itemIndex].amount + 0.5), //mal, agrega numeros al array y suma el doble de lo que codee
-				];
-			}
-		});
+		if (cart.every((item) => item.id !== e.target.id)) {
+			setCart([...cart, { id: e.target.id, amount: 1 }]);
+		} else {
+			const itemIndex = cart.findIndex((item) => item.id === e.target.id);
+			const id = cart[itemIndex].id;
+			setCart(
+				cart.map((it) =>
+					it.id === id ? { ...it, amount: it.amount + 1 } : it
+				)
+			);
+		}
 	};
 
 	const removeProd = (e) => {
