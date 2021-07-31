@@ -42,8 +42,6 @@ function App() {
 		auth.onAuthStateChanged(authStateObserver);
 	})();
 
-	//OBTENER DATOS PARA CART INICIAL SI YA TENIA EL USER
-
 	useEffect(() => {
 		if (logState)
 			fStore
@@ -51,8 +49,7 @@ function App() {
 				.doc(email)
 				.get()
 				.then((snapshot) => {
-					if (snapshot.data().cart) {
-						//corregir para cuando no hay cart
+					if (snapshot.data()) {
 						setCart(snapshot.data().cart);
 						setCartCounter(
 							snapshot
@@ -65,6 +62,8 @@ function App() {
 						);
 					}
 				});
+		else if (!logState) {
+		}
 	}, [logState, email]);
 
 	useEffect(() => {
