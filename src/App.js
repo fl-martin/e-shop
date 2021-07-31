@@ -44,31 +44,28 @@ function App() {
 
 	//OBTENER DATOS PARA CART INICIAL SI YA TENIA EL USER
 
-	/*useEffect(() => {
+	useEffect(() => {
 		if (logState)
 			fStore
 				.collection("carts")
 				.doc(email)
 				.get()
 				.then((snapshot) => {
-					console.log(snapshot.data());
-					setCart(snapshot.data().cart); //esto funciona si ya hay cart
+					if (snapshot.data().cart) {
+						//corregir para cuando no hay cart
+						setCart(snapshot.data().cart);
+						setCartCounter(
+							snapshot
+								.data()
+								.cart.reduce(
+									(valorAnt, valorAct) =>
+										valorAnt + valorAct.amount,
+									0
+								)
+						);
+					}
 				});
-	}, [logState, email]);*/
-
-	/*useEffect(() => {
-		if (logState) {
-			fStore
-				.collection("carts")
-				.doc(email)
-				.get()
-				.then((snapshot) => {
-					let counter = 0;
-					for (let i = 0; snapshot.data().cart.length; i++) counter++;
-					setCartCounter(() => counter);
-				});
-		} else if (!logState) setCartCounter(() => 0);
-	}, [email, logState]);*/
+	}, [logState, email]);
 
 	useEffect(() => {
 		if (logState) {
