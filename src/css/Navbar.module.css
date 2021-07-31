@@ -83,3 +83,34 @@
 	background: none;
 	border: none;
 }
+
+.hidden {
+	opacity: 0;
+	transform: translate(0, 1em);
+	transition: 0.5s;
+	background-color: #f77f00;
+	border-radius: 20px;
+	border: none;
+	margin-left: 25%;
+}
+
+.visible {
+	opacity: 1;
+	transform: translate(0, 2em);
+}
+
+.signOutButn {
+	background-color: #fcbf49;
+	padding: 2em;
+}
+
+.signOutMenu {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.logSection {
+	position: relative;
+	top: 14%;
+}

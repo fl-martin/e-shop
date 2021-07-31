@@ -63,6 +63,8 @@ function App() {
 					}
 				});
 		else if (!logState) {
+			setCart([]);
+			setCartCounter(0);
 		}
 	}, [logState, email]);
 

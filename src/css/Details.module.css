@@ -2,14 +2,13 @@
 	background-color: #eae2b7;
 	display: grid;
 	grid-template-areas: "img info";
-	min-height: 60vh;
 	margin: 2em 4em 4em 4em;
 	padding: 2em;
 	border: black;
 	border-style: double;
 	border-radius: 20px;
 	background-color: #f8f8f8;
-	width: 80vw;
+	min-width: 80vw;
 }
 
 .prodImg {
