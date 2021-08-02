@@ -16,8 +16,6 @@ function LoginSection({ logState, displayName, photoURL, signIn, signOut }) {
 		}
 	};
 
-	//	useEffect(() => setHiddenMenu("signOutMenu", "menuBtn"), []);
-
 	if (logState) {
 		const firstName = displayName.split(" ")[0];
 		return (
